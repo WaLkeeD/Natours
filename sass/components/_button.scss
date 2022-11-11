@@ -1,0 +1,96 @@
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+
+        display: inline-block;
+        border-radius: 10rem;
+
+        transition: all 0.2s;
+        position: relative;
+
+        animation-name: moveToBottom;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: $default-box-shadow;
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 5px rgba($color-black, 0.757);
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            background-color: $color-primary;
+        }
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+    }
+
+    &--animated {
+        animation: moveToBottom 0.3s ease-out 0.75s;
+        animation-fill-mode: backwards;
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-fz;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 5px;
+
+        transition: all 0.2s;
+    }
+
+    &:hover {
+        color: $color-white;
+        background-color: $color-primary;
+
+        box-shadow: $default-box-shadow;
+        transform: translateY(-3px);
+    }
+
+    &:active {
+        box-shadow: $default-box-shadow;
+        transform: translateY(0);
+    }
+}
